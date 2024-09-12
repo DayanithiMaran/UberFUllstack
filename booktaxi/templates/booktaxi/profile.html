@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Accounts</title>
+    <link rel="stylesheet" href="{% static 'stylesheets/profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <main>
+        <header class="NavBar">
+           <span>Uber Account</span>
+        </header>
+     <section class="UserSec">
+        <aside class="UserAside">
+            <ul class="AsideBtns">
+                <li class="ActToggle NavlinkOne Active">Account info</li>
+                <li class="ActToggle NavlinkTwo">Overview</li>
+                <li class="ActToggle NavlinkThree">Security</li>
+                <li class="ActToggle NavlinkFour ">Privacy & Data</li>
+            </ul>
+        </aside>
+        <article class="UserArt">
+            <div class="UserInfo" id="UserInfo">
+                <span class="Userspan">Account Info</span>
+
+                <div class="UserLogo">
+                    <span><i class="fa-solid fa-pen"></i></span>
+                    <img src="https://d1w2poirtb3as9.cloudfront.net/default.jpeg?Expires=1725901610&Signature=JOpfJhtO6DN1K0lMfqasBWp~xk8TuyAhJfRDfuzsKBxilwJd27-hLrrjhJD8Sz6MDLzcTsyp1C7NCo1CceFomE~WdUeUcZhTKuqGaMuPgof6jSaEtbTvtFrv3wHOFZGksT3E42mQmEqtIqAjqt-x00E9qoYP-5pBBmDShaTrypPzJXtvaroWOyoSPKxmZAWdCbu4Kyea~KvQDvZU8I2P7b~2KUYKQyHSN0bg9Rr8SC-MeiiilvUQ58XZeFBrQD3eM09~CpL-h1tONEFQUKeO3oK6odWnbgGYQ8VEU90DY9HUkkIWRdb1R8uwOdiL3C3omm~gPQ8ekhHzWi9ZdO0FCw__&Key-Pair-Id=K36LFL06Z5BT10" alt="">
+                </div>
+
+                <div class="UserDetails">
+                    <span>Basic Info</span>
+                    <ul>
+                        <li><span><a href="/admin/password_change/">Name</a>
+                            <p>{{request.user.username}}</p></span> <i class="fa-solid fa-chevron-right"></i></li>
+                        <li><span><a href="#">Phone number</a>
+                            <p>+91{{request.user.first_name}}</p></span> <i class="fa-solid fa-chevron-right"></i></li>
+                        <li><span><a href="#">Email</a>
+                            <p>{{request.user.email}}</p> </span><i class="fa-solid fa-chevron-right"></i></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="Construction">
+                
+                <span> This page is under development </span>
+            </div>
+        </article>
+     </section>
+    </main>
+
+<script>
+    const NavLinks = document.querySelectorAll('.ActToggle');
+NavLinks.forEach(Allink => {
+    Allink.addEventListener('click',function() {
+        NavLinks.forEach(ActClass => ActClass.classList.remove('Active'));
+        this.classList.add('Active');
+    });
+});
+const UserInfo = document.querySelector('.UserInfo');
+const NavlinkOne = document.querySelector('.NavlinkOne');
+const Construction = document.querySelector('.Construction');
+const NavlinkTwo = document.querySelector('.NavlinkTwo');
+const NavlinkThree = document.querySelector('.NavlinkThree');
+const NavlinkFour = document.querySelector('.NavlinkFour');   
+NavlinkTwo.onclick = function(){
+    UserInfo.style.display = 'none';
+    Construction.style.display = 'flex';
+}       
+NavlinkThree.onclick = function(){
+    UserInfo.style.display = 'none';
+    Construction.style.display = 'flex';
+}       
+NavlinkFour.onclick = function(){
+    UserInfo.style.display = 'none';
+    Construction.style.display = 'flex';
+}     
+NavlinkOne.onclick = function(){
+UserInfo.style.display = '';
+Construction.style.display = 'none';
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+main{
+    width: 100%;
+   
+}
+.NavBar{
+    width: 100%;
+	background: linear-gradient(90deg, #484848, #19191a);		
+    color: white;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+.NavBar span{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+ul,a{
+    list-style: none;
+    text-decoration: none;
+}
+
+.UserSec{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    padding: 10px 0;
+}
+
+.UserSec .UserAside ul li{
+    display: flex;
+    font-size: 0.95em;
+    padding: 15px 20px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    
+}
+.UserSec .UserAside ul li.Active{
+    background: rgb(240, 240, 240);
+    border-left: 4px solid black;
+    padding-left: 16px;
+}
+.UserSec .UserArt{
+    width: 70%;
+    padding: 15px 20px;
+}
+.UserSec .UserArt .UserInfo > span{
+    font-size: 1.8em;
+    font-weight: 600;
+}
+.UserSec .UserArt .UserInfo .UserLogo{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px 0;
+    position: relative;
+    padding: 2px;
+}
+.UserSec .UserArt .UserInfo .UserLogo span{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgb(242, 242, 242);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(138, 137, 137, 0.5);
+    i{
+        color: #000;
+    }
+}
+.UserSec .UserArt .UserInfo .UserLogo img{
+    width: 100%;
+    border-radius: 50%;
+    
+}
+.UserArt .UserDetails > span{
+    font-size: 1.3em;
+    display: inline-block;
+    font-weight: 600;
+    margin: 5px 0  ;
+
+}
+.UserArt .UserDetails ul li{
+    display: flex;
+   
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 15px 0;
+    border-bottom: 1px solid gainsboro;
+    margin:0 0 10px 0;
+    font-size: 0.9em;
+}
+.UserArt .UserDetails ul li a{
+    color: black;
+}
+.UserArt .UserDetails ul li p,i{
+    color: rgb(100, 100, 100);
+}
+.UserArt .Construction{
+    width: 100%;
+    height: 50vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.UserArt .Construction span{
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+}
+@media (max-width:800px){
+    .UserSec{
+        grid-template-columns: 40% 1fr;
+    }
+}
+@media (max-width:600px){
+    .UserSec{
+        grid-template-columns:  1fr;
+    }
+    .UserAside ul{
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+   
+    .UserArt{
+        width: 100% !important;
+    }
+    .UserSec .UserAside ul li.Active{
+    border-bottom: 4px solid black ;
+    border-left: none;
+}
+}
+@media (max-width:400px){
+    .UserAside ul li{
+        padding: 5px 10px !important;
+        font-size: 0.8em !important;
+      
+    }
+    .UserAside ul li.Active{
+     border: none !important;
+     border-bottom: 3px solid black !important;
+      
+    }
+}
+
+

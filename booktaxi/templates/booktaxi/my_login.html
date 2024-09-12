@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber - Login</title>
+    <link rel="stylesheet" href="{% static 'stylesheets/Log.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+   <main>
+    <header class="NavBar">
+        <span><a href="{% url '' %}">Uber </a></span>
+     </header>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" method="POST">
+                    
+                        <div class="LogForm">
+                            {% csrf_token %}
+                        {{loginform.as_p}}
+                        </div>
+                   
+                    
+                    <button class="button login__submit RegBtn">
+                        <input type="submit" class="button__text" value="Log In Now">
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>				
+                    <button class="button login__submit LogBtn">
+                        <a  href="{% url 'register' %}" class="button__text">SignUp Now
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </a>
+                    </button>				
+                </form>
+                <div class="social-login">
+                    <h3>log in via</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-login__icon fab fa-instagram"></a>
+                        <a href="#" class="social-login__icon fab fa-facebook"></a>
+                        <a href="#" class="social-login__icon fab fa-twitter"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>		
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>		
+        </div>
+    </div>
+   </main>
+   
+</body>
+</html>

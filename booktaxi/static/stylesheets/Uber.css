@@ -1,0 +1,930 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+:root{
+    --bg-black-clr:#000;
+    --text-white-clr:#fff;
+}
+a{
+    text-decoration: none;
+}
+.Main{
+    width: 100%; 
+    overflow: hidden;  
+    display: grid;
+    grid-template-rows:repeat(8,auto) ;
+    grid-template-columns:50% 50%;
+    grid-template-areas: 
+    "   header   header   "
+    "   SectionOne   AsideOne   "
+    "   ArticleOne   ArticleOne   "
+    "   AsideTwo    SectionTwo"
+    "   SectionThree   AsideThree   "
+    "   AsideFour   SectionFour   "
+    "   ArticleTwo   ArticleTwo   "
+    "   Footer   Footer   "  
+    ;
+}
+
+header{  
+    width: 100%;
+    padding: 10px 7%;
+    background:var(--bg-black-clr) ;
+    color: var(--text-white-clr);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+    grid-area: header;
+    position: relative;
+    z-index: 10;
+}
+header a{
+    color: var(--text-white-clr);
+    text-decoration: none;
+}
+header .nav-left{
+    width: 50%;
+    display: flex;
+  
+    align-items: center;
+    gap: 5px;
+
+}
+header .UberLogo{
+    font-size: 1.6em !important;
+    margin-right: 10px;
+}
+header .nav-left a{
+    color: var(--text-white-clr);
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 10px 15px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header  a:hover:not(.UberLogo,.signup){
+    background: rgb(41, 41, 41);
+    transition: 0.5s;
+
+}
+header .nav-left .Drop a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    
+}
+header .nav-left .Drop a span{
+    pointer-events: none;
+    
+}
+
+header .nav-left .Drop{
+    position: relative;
+}
+header .nav-left .Drop .DropMenu{
+   
+    position: absolute;
+    top: 50px;
+    left: 0;  
+    width: 250px;
+    height: 0;
+    overflow: hidden;
+    background-color: rgb(239, 237, 237);
+    border-radius: 3px;
+    transition: 0.5s;
+    z-index: 5;
+   
+}
+header .nav-left .Drop .DropMenu a{
+    all: unset;
+    color: #7a7a7a;
+    display: flex;
+    justify-content: flex-start;
+   padding: 10px 15px;
+   margin: 4px 0;
+   transition: 0.5s;
+   cursor: pointer;
+}
+header .nav-left .Drop .DropMenu a:hover{
+    background: rgb(218, 218, 218);
+    color: #000;
+}
+header .nav-left .Drop span.Rotate{
+    transform: rotate(180deg);
+}
+header .nav-left .Drop .DropMenu.DropOPen{
+    height: 470px;
+}
+header .nav-left .Drop span{  
+    transition: 0.5s;
+}
+
+header .nav-right{
+    width: 50%;
+    display: flex;
+    justify-content:flex-end ;
+    align-items: center;   
+    color: var(--text-white-clr);
+    font-size: 0.95em;
+    gap: 5px;
+
+}
+header .nav-right .language {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+}
+header .nav-right a{
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 13px;
+}
+header .Log {
+    display: flex;
+    align-items: center;
+}
+header .Log a {
+    display: flex;
+    white-space: nowrap;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 13px;
+}
+header .Log .signup button{
+    all: unset;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: var(--text-white-clr);
+    color: var(--bg-black-clr);
+}
+.LastNav{
+    display: flex;
+    align-items: center;
+}
+.NavToggle{
+    width: 40px;
+    height: 40px;
+    padding: 0 9px 0 8px;
+    border-radius: 100%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    transition: 0.5s;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    position: relative;
+    display: none;
+}
+.NavToggle:hover{
+    background: rgb(41, 41, 41);
+}
+.NavToggle span{
+    background: white;
+    width: 23px;
+    height: 2px;
+    transition: 0.5s;
+}
+.NavToggle span:nth-child(1){
+    width: 17px;
+}
+.NavToggle.NavOpen span:nth-child(1){
+    width: 23px;
+    transform:translateY(3px) rotate(45deg);
+}
+.NavToggle.NavOpen span:nth-child(2){
+    width: 23px;
+    transform:translateY(-5px) rotate(-45deg);
+}
+header .NavMenu{
+    position: absolute;
+    width: 100%;
+    height:0 ;
+    overflow: hidden;
+    background-color: white;
+    top:100%;
+    left: 0;
+    z-index: 8;
+    transition: 0.5s;
+    
+}
+header .NavMenu.NavMenuOpen{
+   transition: 0.5s;
+    height:100vh ;
+}
+main.ViewPort{
+    height: 100vh;
+ 
+}
+.NavMenu ul{
+    list-style: none;
+}
+
+.NavMenu li a{
+    display: inline-block;
+    font-size: 2em;
+    padding: 20px 5%;
+    margin: 5px 0;
+    color: black;
+    background:white !important;
+    font-weight: 600;
+    position: relative;
+  
+}
+.NavMenu ul li:last-child  {
+    padding-left:20px ;
+}
+.NavMenu ul li:last-child a{
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    padding: 5px 10px;
+    align-items: center;
+    border-radius: 20px;
+}
+.NavMenu ul li a:hover{
+    color: rgba(0,0,0,0.6);
+}
+/* Navbar ENd */
+
+
+.SectionOne{
+    grid-area: SectionOne;
+    color: var(--text-white-clr);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:0 20%;
+    background: black;
+  
+}
+.SectionOne .Go{
+    font-size: 2.85em;
+    font-weight: 600;
+
+}
+
+.SectionOne .Location{
+    margin-top: 8px;
+}
+.SectionOne .Location p{
+    font-size: 1.1em;
+    margin-bottom: 10px;
+
+}
+.SectionOne input{
+    width: 100%;
+    padding: 15px 35px;
+    border-radius: 8px;
+    font-size:1em;
+    border: none;
+    outline: none;
+}
+.SectionOne .Location .Circle, .Square{
+    width:400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 18px;
+}
+.SectionOne .Circle .Slash{
+    position: absolute;
+    left: 20px;
+    bottom: -33px;
+    width: 1px;
+    height: 48px;
+    z-index: 1;
+    background: rgb(255, 255, 255);
+}
+.SectionOne .Location  i{
+    font-size: 0.8em;
+    position: absolute;
+    left: 15px;   
+    color: black;
+    font-weight:bolder;
+}
+.SectionOne .Location  .Circle .ArrowTwo{
+    position: absolute;
+    right: 15px;
+    color: black;
+    font-weight:bolder;
+}
+.SectionOne .Location button{
+    min-width:130px ;
+    font-size: 1.1em;
+    margin-top: 18px;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+.AsideOne{
+    grid-area: AsideOne;    
+    padding: 10% 0;
+    background: black;
+
+}
+.AsideOne img{
+    width: 75%;
+  
+
+}
+
+
+
+
+
+.ArticleOne{
+    padding: 4% 10%;
+    background: #fefefe;
+    grid-area: ArticleOne;
+}
+article > span{
+    font-size: 2em;
+    display: inline-block;
+    margin-bottom: 25px;
+    font-weight: 600;
+   
+}
+.suggest{
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    
+    
+}
+.suggest .CommonCar{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    flex-grow: 1;
+    background: #f4f4f4;
+    border-radius: 8px;
+    padding:10px 20px;
+
+}
+.suggest .CommonCar .Carcon {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    span{font-size: 1.1em ;margin: 0 0 10px 0; }
+    p{font-size: 0.78em; }
+}
+.suggest .CommonCar .Carcon a{
+    text-decoration: none; 
+    font-size: 1em; 
+    color: black; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    background: white;
+    border-radius: 18px;
+    margin-top:10px;
+}
+.suggest .CommonCar .Carimg img{
+    width: 150px;
+    
+}
+
+
+.AsideTwo{
+    padding-left: 20%;
+    grid-area: AsideTwo;
+   
+
+}
+a{
+    cursor: pointer;
+}
+.CommonAside img{
+    width: 93%;
+}
+
+.CommonAside{
+    margin-top: 100px;
+
+}
+
+.CommonSec{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:0 15%;
+    gap: 30px;
+    margin-top: 100px;
+
+}
+.SectionTwo{
+    grid-area: SectionTwo;
+    padding: 0 15% 0  9%;
+    
+}
+
+
+.CommonSec span{
+    font-size: 2.2em;
+    font-weight: 600;
+}
+.CommonSec > p{
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.part3-under{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.part3-under a:last-child{
+    color: #000;
+    padding: 0;
+    text-decoration: none;
+}
+.part3-under .ForHr a{
+    white-space: nowrap;
+    color: #000;
+}
+.part3-under .GetBtn{
+    display: inline-block;
+    min-width: 120px ;
+    text-align: center;
+    text-decoration: none;
+    background: black;
+    border-radius: 10px;
+    padding: 15px ;
+    color: white;
+    white-space: nowrap;
+    
+}
+.part3-under .ForHr{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.part3-under span{
+    width: 100%;
+    background-color: rgb(210, 210, 210);
+    height: 0.11rem;
+    position: relative;
+    
+}
+.part3-under span::before{
+    content: ' ';
+    position: absolute;
+    width:0 ;
+    height: 100%;
+    background-color: black;
+    transition: 0.5s ;
+}
+.part3-under a:hover +  span::before {
+    width: 100% !important;
+}
+
+
+.SectionThree{
+    grid-area: SectionThree;
+    padding-left: 20%;
+    padding-right: 2%;
+   
+}
+.AsideThree{
+    grid-area: AsideThree;
+    padding-right: 20%;
+    padding-left: 5%;
+   
+
+}
+.AsideFour{
+    grid-area: AsideFour;
+    padding:0 0 10% 20%;
+}
+.SectionFour{
+    grid-area: SectionFour;
+    padding-right: 5%;
+
+}
+.SectionFour a{
+   display: inline-block;
+   padding: 15px !important;
+   color: white !important;
+}
+.SectionFour span{
+    font-size: 2.2em;
+  
+}
+
+.ArticleTwo{
+    grid-area: ArticleTwo;
+    padding: 4% 10%;
+    background: rgb(246, 246, 246);
+}
+
+
+/* .part4-img{
+    position: absolute;
+    margin-right: 10px;
+} */
+.barcode{
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+    margin-top: 25px;
+}
+.BarCod{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    gap: 20px;
+    
+    padding: 25px;
+    background: white;
+    position: relative;
+
+}
+.BarCod img{
+    width: 150px;
+}
+.BarCod .BarCodeAlign{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.BarCod .ReplaceImg{
+    display: none;
+    padding: 2.5% 1.5%;
+    border-radius: 13px;
+    background: black;
+    color: white;
+    
+}
+.BarCod .ReplaceImg span{
+    font-size: 1.5em;
+}
+.BarCod .ForArrow{
+    position: relative;
+}
+.BarCod i{
+    font-size: 1.5em;
+    position: absolute;
+    right:10px ;
+    transition: 0.5s;
+   
+}
+
+.BarCon {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    letter-spacing: 0.5px;
+    span{font-size: 1.3em;
+    font-weight: 550;}
+    p{font-size: 1em;}
+}
+.footer{
+    padding: 90px 10%;
+    background-color: black;
+    color: white;
+    grid-area: Footer;
+}
+
+.footer .FootLogo{
+    display: grid; 
+    padding: 0 10px;
+    
+}
+.footer .FootLogo a{
+    color: #fff;
+    
+}
+.footer .FootLogo a:first-child{
+    font-size: 1.3em;
+}
+.footer .FootLogo a:last-child{
+    font-size: 0.9em;
+}
+.footer .flists{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 30px;
+    padding-left: 10px;  
+}
+
+.CommonFoot a {
+    display: block;
+    width: 200px;
+    font-size: 0.9em;
+    padding: 0;
+    margin: 15px 0;
+    color: white;
+  
+    
+}
+.CommonFoot span{
+    display: inline-block;  
+    font-size: 1.1em;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+
+.f-logo{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 30px;
+}
+.f-logo-left{
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 30px;
+}
+.f-logo-left span i{
+    width: 36px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+
+}
+.f-logo-left span i:hover{
+    background: #1e1e1e;
+}
+.f-logo-right{
+    display: grid;    
+    grid-template-columns: repeat(2,120px);
+    align-content: end;
+    justify-content: end;
+    
+}
+
+.f-logo-right span a{
+    display: inline;
+   color: #fff;
+    text-decoration: none;
+    font-size: 0.9em;
+
+}
+#NotUser, #UserHere{
+    display: none;
+}
+
+.PlayLogo{
+    width: 280px;
+    display: grid;
+    grid-gap: 10px;
+   grid-template-columns: repeat(2,1fr);
+   margin: 40px 0;
+}
+.CopyRight{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+}
+.CopyRight .lastfont span{
+    font-size: 0.75em;
+    color: #ababab;
+    font-weight: 500;
+}
+.CopyRight .last1{
+    display: flex;
+    gap: 30px;
+    padding-right: 15px;
+    justify-content: end;
+}
+.CopyRight .last1 a{
+    font-size: 0.75em;
+    color: #ababab;
+   
+    text-decoration: none;
+
+}
+@media (min-width:1130px){
+    header .NavMenu{
+        display: none !important;
+    }
+}
+
+@media (max-width:1130px){
+  
+    header .UberLogo{
+        padding-left: 1%;
+    }
+    header .Log{
+        padding-right: 0;
+    }
+    header .nav-left{
+        display: none ;
+    }
+    header .nav-right{
+        display: none ;
+    }
+    .NavToggle{
+        display: flex;
+    }
+    .AsideOne{
+        display: none;
+    }
+    .SectionOne , .ArticleOne, .AsideOne, .AsideTwo, .ArticleTwo,.AsideThree,.AsideFour,.SectionFour,.SectionThree,.SectionTwo,.footer{
+        padding:30px 5% ;
+        width: 100%;
+        margin:  0; 
+        /* border: 1px solid skyblue; */
+    }
+    .ArticleOne .suggest{
+        width: 100%;
+    }
+
+    .Main{
+        grid-template-columns: 100%;
+        grid-template-rows:repeat(11,auto) ;
+        grid-template-areas: 
+        "   header   "
+        "   SectionOne   "
+        "   ArticleOne  "
+        "   SectionTwo  "
+        "   AsideTwo    "
+        "   SectionThree   "
+        "   AsideThree   "
+        "   SectionFour   "
+        "   AsideFour   "
+        "   ArticleTwo   "
+        "   Footer   "
+        ;
+    }
+    .CommonSec{
+        align-items: start;
+        gap: 20px;
+        p{
+            font-size: 0.9em;
+        }
+}
+.CommonAside img{
+    width: 100%;
+}
+.footer{
+    padding: 30px;
+}
+.footer .flists{
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 35px;
+}
+.f-logo{
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 10px;
+ 
+}
+.f-logo-right{
+    justify-content: start;
+    padding-left: 10px;
+}
+.barcode{
+    flex-direction: column;
+}
+.BarCod img,.BarCod p{
+    display: none;
+}
+.BarCod .ReplaceImg{
+    display: inline-block;
+}
+}
+
+@media (max-width:600px){
+    .footer .flists{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .suggest{
+        width: 100%;
+        flex-direction: column;
+    }
+    .suggest .CommonCar{
+        width: 100%;
+    }
+    .barcode{
+        flex-direction: column;
+    }
+  
+    .BarCod .ReplaceImg span , .BarCon span{
+        font-size: 1em;
+    }
+    .CopyRight{      
+        grid-template-columns: repeat(1,1fr);
+    }
+    .CopyRight .last1{       
+        justify-content: start;
+    }
+
+}
+@media (max-width:480px){
+    .SectionOne .Location .Circle, .Square{
+        width: 100%;
+    }
+}
+@media (max-width:450px){
+    .SectionOne .Go{
+        font-size: 2em;
+    }
+    .part3-under {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .NavMenu ul li a{
+        font-size: 1.2em;
+    }
+    .BarCod{
+        padding: 10px;
+       
+    }
+    .BarCod span{
+        font-size: 1.1em;
+       
+    }
+}
+
+.log{
+    position: relative;
+}
+.Log .UserToggle{
+    display: flex;
+    background: white ;
+    color: #000;
+    padding:5px 10px ;
+    border-radius: 30px;
+    cursor: pointer;
+    margin:0 5px;
+}
+.UserDropMenu{
+    position: absolute;
+    min-width: 250px;
+    display: flex;
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    top: 60px;
+    right: 100px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    transition: 0.5s;
+}
+
+.UserDropMenu ul{
+    padding: 10px;
+
+}
+.UserDropMenu ul li {
+    list-style: none;
+    margin:10px 0;
+}
+.UserDropMenu ul li a {
+    color: black;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.UserDropMenu ul li a:hover{
+    background: white;
+    color: rgba(0,0,0,0.6);
+}
+.UserMenu  span{
+    transform: rotate(180deg);
+}
+.UserToggle span{
+    transition: 0.5s;
+
+}
+.UserMenu + .UserDropMenu{
+    height: 355px;
+    
+}
